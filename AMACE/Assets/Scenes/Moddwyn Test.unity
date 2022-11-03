@@ -1499,6 +1499,7 @@ MonoBehaviour:
   runSpeed: 10
   runKey: 304
   jumpStrength: 5
+  rayCheckDistance: 1
   jumpKey: 32
   crouchAmount: 0.25
   crouchKey: 306

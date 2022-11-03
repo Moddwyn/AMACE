@@ -14,6 +14,7 @@ public class FirstPersonController : MonoBehaviour
     [Header("PLEASE SET GROUND TAGS")]
     [Space(20)]
     public float jumpStrength = 5;
+    public float rayCheckDistance;
     public KeyCode jumpKey = KeyCode.Space;
 
     [Space(20)]
@@ -80,6 +81,15 @@ public class FirstPersonController : MonoBehaviour
     }
     void Jump()
     {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, rayCheckDistance))
+        {
+            isGrounded = hit.transform.tag.Equals("Ground");
+        } else 
+        {
+            isGrounded = false;
+        }
+
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             rb.AddForce(rb.transform.up * jumpStrength, ForceMode.Impulse);
@@ -105,18 +115,18 @@ public class FirstPersonController : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Ground"))
+    //     {
+    //         isGrounded = true;
+    //     }
+    // }
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Ground"))
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
 }
