@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< Updated upstream
 --- !u!1 &102001549
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +96,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1854059129447234
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +109,11 @@ GameObject:
   - component: {fileID: 4773342560817168}
   - component: {fileID: 33806785698359606}
   - component: {fileID: 23817695899350140}
+<<<<<<< Updated upstream
   - component: {fileID: 1134384602}
+=======
+  - component: {fileID: -3636487050822350426}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: stairs_1
   m_TagString: Ground
@@ -178,7 +185,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!64 &1134384602
+=======
+--- !u!64 &-3636487050822350426
+>>>>>>> Stashed changes
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
