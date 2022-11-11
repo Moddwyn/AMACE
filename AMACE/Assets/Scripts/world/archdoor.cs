@@ -6,6 +6,10 @@ public class archdoor : MonoBehaviour
 {
     public bool collider1;
     public bool enter;
+    public Transform door1;
+    public Transform door2;
+    public float rotationAmount;
+    public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +19,33 @@ public class archdoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enter)
+        {
+            if (collider1)
+            {
+                door1.rotation = Quaternion.Lerp(door1.rotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door2.rotation = Quaternion.Lerp(door2.rotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
+
+            }
+            else
+            {
+                door1.rotation = Quaternion.Lerp(door1.rotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door2.rotation = Quaternion.Lerp(door2.rotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
+            }
+        }
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        enter = true;
+        if (other.tag == "Player")
+            enter = true;
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        enter = false;
+        if (other.tag == "Player")
+            enter = false;
     }
 }
