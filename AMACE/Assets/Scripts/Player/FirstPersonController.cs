@@ -57,27 +57,32 @@ public class FirstPersonController : MonoBehaviour
 
 	void Update()
 	{
-		if(allowMove)
-			Move();
 		if(allowJump)
 			Jump();
 		if(allowCrouch)
 			Crouch();
 		if(allowLook)
 			Look();
+		if(allowMove)
+			Move();
+	}
+
+	void FixedUpdate()
+	{
+		
 	}
 
 	void Move()
 	{
 		speed = Input.GetKey(runKey) ? runSpeed : walkSpeed;
 
-		float horAxis = Input.GetAxis("Horizontal");
-		float vertAxis = Input.GetAxis("Vertical");
+		float horAxis = Input.GetAxisRaw("Horizontal");
+		float vertAxis = Input.GetAxisRaw("Vertical");
 		float inputX = horAxis * speed * Time.deltaTime;
 		float inputZ = vertAxis * speed * Time.deltaTime;
 
-		rb.transform.Translate(inputX, 0, inputZ);
-
+		Vector3 movementDir = rb.transform.forward * inputZ + rb.transform.right * inputX;
+		rb.AddForce(movementDir.normalized * speed);
 	}
 	void Jump()
 	{
