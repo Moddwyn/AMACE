@@ -23,14 +23,14 @@ public class archdoor : MonoBehaviour
         {
             if (collider1)
             {
-                door1.rotation = Quaternion.Lerp(door1.rotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
-                door2.rotation = Quaternion.Lerp(door2.rotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door1.localRotation = Quaternion.Lerp(door1.localRotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door2.localRotation = Quaternion.Lerp(door2.localRotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
 
             }
             else
             {
-                door1.rotation = Quaternion.Lerp(door1.rotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
-                door2.rotation = Quaternion.Lerp(door2.rotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door1.localRotation = Quaternion.Lerp(door1.localRotation, Quaternion.Euler(0, 180 - rotationAmount, 0), Time.deltaTime * rotationSpeed);
+                door2.localRotation = Quaternion.Lerp(door2.localRotation, Quaternion.Euler(0, rotationAmount, 0), Time.deltaTime * rotationSpeed);
             }
         }
         
