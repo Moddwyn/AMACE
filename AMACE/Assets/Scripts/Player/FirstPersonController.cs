@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider),typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour
 {
 	[Header("PLEASE SET PLAYER TAG")]
@@ -14,13 +14,8 @@ public class FirstPersonController : MonoBehaviour
 	[Header("PLEASE SET GROUND TAGS")]
 	[Space(20)]
 	public float jumpStrength = 5;
-	public float rayCheckDistance;
+	public float gravity = -20;
 	public KeyCode jumpKey = KeyCode.Space;
-
-	[Space(20)]
-	public float crouchAmount = 0.25f;
-	public KeyCode crouchKey = KeyCode.LeftControl;
-	
 
 	[Space(20)]
 	public float camSensitivity = 1;
@@ -29,24 +24,22 @@ public class FirstPersonController : MonoBehaviour
 	[Space(20)]
 	public bool allowMove = true;
 	public bool allowJump = true;
-	public bool allowCrouch = true;
 	public bool allowLook = true;
 
-	Rigidbody rb;
+	CharacterController cc;
 	float speed;
 	bool isGrounded = true;
-	float normalYLocalPosition = 1;
 
 	Transform charCamera;
 	Vector2 currentMouseLook;
 	Vector2 appliedMouseDelta;
+	Vector3 moveDirection = Vector3.zero;
+	float yVel;
 
 
 	void Start()
 	{
-		rb = GetComponent<Rigidbody>();
-		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-		normalYLocalPosition = rb.transform.localScale.y;
+		cc = GetComponent<CharacterController>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -54,60 +47,50 @@ public class FirstPersonController : MonoBehaviour
 
 	}
 
-
 	void Update()
 	{
 		if(allowJump)
 			Jump();
-		if(allowCrouch)
-			Crouch();
 		if(allowLook)
 			Look();
 		if(allowMove)
 			Move();
 	}
 
-	void FixedUpdate()
-	{
-		
-	}
-
 	void Move()
 	{
 		speed = Input.GetKey(runKey) ? runSpeed : walkSpeed;
 
-		float horAxis = Input.GetAxisRaw("Horizontal");
-		float vertAxis = Input.GetAxisRaw("Vertical");
-		float inputX = horAxis * speed * Time.deltaTime;
-		float inputZ = vertAxis * speed * Time.deltaTime;
+		Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+        // Press Left Shift to run
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        float curSpeedX = speed * Input.GetAxis("Vertical");
+        float curSpeedY = speed * Input.GetAxis("Horizontal");
+        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+		moveDirection.y = yVel;
 
-		Vector3 movementDir = rb.transform.forward * inputZ + rb.transform.right * inputX;
-		rb.AddForce(movementDir.normalized * speed);
+        // Move the controller
+        cc.Move(moveDirection * Time.deltaTime);
 	}
 	void Jump()
-	{
-		RaycastHit hit;
-		if(Physics.Raycast(transform.position, Vector3.down, out hit, rayCheckDistance))
-		{
-			isGrounded = hit.transform.tag.Equals("Ground");
-		} else 
-		{
-			isGrounded = false;
-		}
-
+	{	
+		//RaycastHit hit;
+	// 	if(Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance))
+	// 		isGrounded = hit.transform.CompareTag("Ground");
+	// 	else
+	// 		isGrounded = false;
+		isGrounded = cc.isGrounded;
+		if(yVel > gravity + 1)
+			yVel += gravity * Time.deltaTime;
+		else
+			yVel = gravity;
 		if (Input.GetKeyDown(jumpKey) && isGrounded)
 		{
-			rb.AddForce(rb.transform.up * jumpStrength, ForceMode.Impulse);
+           yVel = Mathf.Sqrt(jumpStrength * -2f * (gravity ));
 		}
 	}
-	void Crouch()
-	{
-		float currentYVal = Input.GetKey(crouchKey)   ?    normalYLocalPosition - crouchAmount    :     normalYLocalPosition;
 
-		rb.transform.localScale = new Vector3(rb.transform.localScale.x,
-												  currentYVal,
-												  rb.transform.localScale.z);
-	}
 	void Look()
 	{
 		Vector2 smoothMouseDelta =  Vector2.Scale(new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")), Vector2.one * camSensitivity * camSmoothing);
@@ -119,19 +102,4 @@ public class FirstPersonController : MonoBehaviour
 		transform.localRotation = Quaternion.AngleAxis(currentMouseLook.x, Vector3.up);
 	}
 	
-
-	// private void OnCollisionEnter(Collision collision)
-	// {
-	//     if (collision.gameObject.CompareTag("Ground"))
-	//     {
-	//         isGrounded = true;
-	//     }
-	// }
-	// private void OnCollisionExit(Collision collision)
-	// {
-	//     if (collision.gameObject.CompareTag("Ground"))
-	//     {
-	//         isGrounded = false;
-	//     }
-	// }
 }
