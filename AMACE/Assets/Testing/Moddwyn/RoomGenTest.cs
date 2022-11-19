@@ -37,15 +37,16 @@ public class RoomGenTest : MonoBehaviour
         Transform nextAchor = startingAnchor;
         for (int i = 0; i < rooms; i++)
         {
-            int randHallway = UnityEngine.Random.Range(0, hallwayPrefabs.Length);
+            int randHallway = Random.Range(0, hallwayPrefabs.Length);
             Transform spawnHallway = (Transform)Instantiate(hallwayPrefabs[randHallway], nextAchor.position, Quaternion.Euler(nextAchor.rotation.eulerAngles));
             nextAchor = spawnHallway.GetChild(0);
 
-            int randRoom = UnityEngine.Random.Range(0, roomPrefabs.Length);
+            int randRoom = Random.Range(0, roomPrefabs.Length);
             Transform spawnRoom = (Transform)Instantiate(roomPrefabs[randRoom], nextAchor.position, Quaternion.Euler(nextAchor.rotation.eulerAngles));
             
             Transform[] nextExits = spawnRoom.GetComponentsInChildren<Transform>().Where(x=>x.tag == "Anchor").ToArray();
             int randCorrectExit = Random.Range(0, nextExits.Length);
+
             for (int j = 0; j < nextExits.Length; j++)
             {
                 if(j != randCorrectExit)

@@ -46,7 +46,6 @@ public class FirstPersonController : MonoBehaviour
 		charCamera = Camera.main.transform;
 
 	}
-
 	void Update()
 	{
 		if(allowJump)
@@ -73,18 +72,16 @@ public class FirstPersonController : MonoBehaviour
         // Move the controller
         cc.Move(moveDirection * Time.deltaTime);
 	}
+
 	void Jump()
 	{	
-		//RaycastHit hit;
-	// 	if(Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance))
-	// 		isGrounded = hit.transform.CompareTag("Ground");
-	// 	else
-	// 		isGrounded = false;
 		isGrounded = cc.isGrounded;
+
 		if(yVel > gravity + 1)
 			yVel += gravity * Time.deltaTime;
 		else
 			yVel = gravity;
+			
 		if (Input.GetKeyDown(jumpKey) && isGrounded)
 		{
            yVel = Mathf.Sqrt(jumpStrength * -2f * (gravity ));

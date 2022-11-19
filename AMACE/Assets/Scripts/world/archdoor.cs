@@ -39,13 +39,19 @@ public class archdoor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-            enter = true;
+        {
+            if(collider1)
+            {
+                enter = true;
+                transform.parent.GetChild(1).GetComponent<archdoor>().enter = false;
+            } else
+            {
+                enter = true;
+                transform.parent.GetChild(2).GetComponent<archdoor>().enter = false;
+            }
+        }
+            
         
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-            enter = false;
-    }
 }
