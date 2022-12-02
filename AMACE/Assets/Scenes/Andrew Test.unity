@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0aecf51dc166f4892675c3f04e4040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 10
+  countdownStart: 0
+  countdownFinish: 0
 --- !u!4 &57797954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4882163915831670, guid: 94cdfadae0c50374cbc28325b389c1f7, type: 3}
@@ -1200,7 +1203,7 @@ GameObject:
   - component: {fileID: 1656244725}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Countdown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

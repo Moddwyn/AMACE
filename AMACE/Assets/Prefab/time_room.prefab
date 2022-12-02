@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8330801449663039322}
   - component: {fileID: 7282323338667579574}
   - component: {fileID: 4652437032568303573}
+  - component: {fileID: 6443552996763491547}
   m_Layer: 0
   m_Name: ChallengeTrigger
   m_TagString: Untagged
@@ -61,10 +62,10 @@ MonoBehaviour:
   onStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1923101194996674842}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6443552996763491547}
+        m_TargetAssemblyTypeName: CountDown, Assembly-CSharp
+        m_MethodName: StartCountdown
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -73,6 +74,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6443552996763491547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193502041080795475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0aecf51dc166f4892675c3f04e4040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 10
+  countdownStart: 0
+  countdownFinish: 0
 --- !u!64 &1924301609975344098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12013,7 +12029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4302710928754906, guid: a578ee0f8198a4d43909700c19cbf82d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27742004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4302710928754906, guid: a578ee0f8198a4d43909700c19cbf82d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13065,11 +13081,6 @@ PrefabInstance:
 --- !u!4 &1925857954529803392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
-  m_PrefabInstance: {fileID: 1924301609265921400}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1923101194996674842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
   m_PrefabInstance: {fileID: 1924301609265921400}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1924301609296621939
@@ -14319,14 +14330,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29748466972c61f4e8a122c9c839603b, type: 3}
---- !u!4 &1919812491319909591 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4773342560817168, guid: 29748466972c61f4e8a122c9c839603b, type: 3}
-  m_PrefabInstance: {fileID: 1924301609848900807}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1923855488245313413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1854059129447234, guid: 29748466972c61f4e8a122c9c839603b, type: 3}
+  m_PrefabInstance: {fileID: 1924301609848900807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1919812491319909591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4773342560817168, guid: 29748466972c61f4e8a122c9c839603b, type: 3}
   m_PrefabInstance: {fileID: 1924301609848900807}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1924301610045558840

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Anchor
+  - Countdown
   layers:
   - Default
   - TransparentFX
