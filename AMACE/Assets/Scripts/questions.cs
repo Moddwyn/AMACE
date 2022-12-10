@@ -6,12 +6,8 @@ using System;
 [CreateAssetMenu]
 public class questions : ScriptableObject
 {
-    public questionData[] _questions;
-}
-[Serializable]
-public class questionData
-{
-    public Sprite questions;
+    public Sprite _questions;
     public int correctAnswer;
     public Sprite[] answers;
 }
+
