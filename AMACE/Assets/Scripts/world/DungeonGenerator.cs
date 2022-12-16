@@ -39,13 +39,18 @@ public class DungeonGenerator : MonoBehaviour
             int RandRoom = Random.Range(0, roomPrefabs.Length);
             Transform SpawnRoom = Instantiate(roomPrefabs[RandRoom], nextAnchor.position, Quaternion.Euler(nextAnchor.rotation.eulerAngles));
             Transform[] NextExit = SpawnRoom.GetComponentsInChildren<Transform>().Where(x => x.tag == "Anchor").ToArray();
-            int RandExit = Random.Range(0, NextExit.Length);
+            int RandExit = Random.Range(0, 5);
             nextAnchor = NextExit[RandExit];
 
             GameObject NewRoom = new GameObject("Room " + (mapHolder.childCount + 1));
             NewRoom.transform.SetParent(mapHolder);
             SpawnHallway.SetParent(NewRoom.transform);
             SpawnRoom.SetParent(NewRoom.transform);
+            if(SpawnRoom.GetComponentInChildren<QuestionsManager>() != null)
+            {
+                SpawnRoom.GetComponentInChildren<QuestionsManager>().randExit = RandExit;
+            }
+            
         }
     }
 

@@ -567,6 +567,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &387755639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387755641}
+  - component: {fileID: 387755640}
+  m_Layer: 0
+  m_Name: question List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &387755640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387755639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a29599455380e44d96d6c76aca92225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionList:
+  - {fileID: 11400000, guid: f7d31a4e9ccd4454b9e3023219820f8b, type: 2}
+  - {fileID: 11400000, guid: 16c9aac2cc6da84428c05bc723dbd1e9, type: 2}
+--- !u!4 &387755641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387755639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.35267, y: 19.757778, z: 49.302986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &413406451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,16 +1237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapHolder: {fileID: 1591992327}
-  roomCount: 10
+  roomCount: 2
   startingAnchor: {fileID: 1876864755}
   hallwayPrefabs:
   - {fileID: 1167980174347123565, guid: 4813f035fc991844f8bede9ba764c37e, type: 3}
   roomPrefabs:
-  - {fileID: 1257944971775531991, guid: 7186240f987ea714f98ab1c087e0aa79, type: 3}
   - {fileID: 1924301608459051635, guid: e8605fad50fa04b4e92b6ae2987e1dbc, type: 3}
-  - {fileID: 2255409783859073771, guid: b5ec9270cf5ead5458f315f46c2a2540, type: 3}
-  - {fileID: 8987021072682748580, guid: eab2752b9cbf9d946acc6660e36d0ed9, type: 3}
-  - {fileID: 9025432719063605141, guid: 42920830da8ce4842bc42f49923165a3, type: 3}
   deadroomPrefabs: []
 --- !u!114 &1591992329
 MonoBehaviour:
@@ -1214,8 +1256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5de105fb3c8e944aea37c956c68ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questions: []
+  _questions: {fileID: 0}
   meshRenderer: {fileID: 0}
+  answerManagers: []
+  randExit: 0
 --- !u!1001 &1607702288
 PrefabInstance:
   m_ObjectHideFlags: 0
