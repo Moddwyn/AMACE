@@ -1237,13 +1237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapHolder: {fileID: 1591992327}
-  roomCount: 2
+  roomCount: 5
   startingAnchor: {fileID: 1876864755}
   hallwayPrefabs:
   - {fileID: 1167980174347123565, guid: 4813f035fc991844f8bede9ba764c37e, type: 3}
   roomPrefabs:
   - {fileID: 1924301608459051635, guid: e8605fad50fa04b4e92b6ae2987e1dbc, type: 3}
   deadroomPrefabs: []
+  currentRoom: -1
 --- !u!114 &1591992329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,6 +1261,12 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   answerManagers: []
   randExit: 0
+  onCorrect:
+    m_PersistentCalls:
+      m_Calls: []
+  onWrong:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1607702288
 PrefabInstance:
   m_ObjectHideFlags: 0

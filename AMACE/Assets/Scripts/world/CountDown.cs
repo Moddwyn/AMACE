@@ -35,6 +35,7 @@ public class CountDown : MonoBehaviour
         
         if (countdownFinish)
         {
+            countdownText.text = "";
             this.enabled = false;
         }
     }
@@ -43,5 +44,11 @@ public class CountDown : MonoBehaviour
     {
         countdownStart = true;
     }
-        
+
+    public void StopCountdown()
+    {
+        countdownStart = false;
+        countdownText.text = "";
+    }
+
 }

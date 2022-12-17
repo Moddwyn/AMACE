@@ -11,7 +11,14 @@ public class DungeonGenerator : MonoBehaviour
     public Transform[] hallwayPrefabs;
     public Transform[] roomPrefabs;
     public Transform[] deadroomPrefabs;
+    public int currentRoom = 0;
     // Start is called before the first frame update
+    public static DungeonGenerator Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         roomGenerator();
@@ -20,7 +27,8 @@ public class DungeonGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T))
+            goToNextRoom();
     }
 
     public void roomGenerator()
@@ -54,5 +62,12 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-
+    public void goToNextRoom()
+    {
+        if(currentRoom < roomCount-1)
+        {
+            currentRoom++;
+        }
+        FirstPersonController.Instance.transform.position = transform.GetChild(currentRoom).GetChild(0).GetChild(0).position + Vector3.up * 3;
+    }
 }

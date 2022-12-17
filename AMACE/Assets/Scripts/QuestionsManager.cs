@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestionsManager : MonoBehaviour
 {
@@ -8,9 +9,18 @@ public class QuestionsManager : MonoBehaviour
     public MeshRenderer meshRenderer;
     public List<AnswerManager> answerManagers = new List<AnswerManager>();
     public int randExit;
+    public UnityEvent onCorrect;
+    public UnityEvent onWrong;
+
+    private void Start()
+    {
+        if(meshRenderer != null)
+            meshRenderer.enabled = false;
+    }
 
     public void ShowQuestion()
     {
+        meshRenderer.enabled = true;
         _questions = QuestionsList.Instance.GetRandomQuestion();
         meshRenderer.material.mainTexture = _questions._questions.texture;
         

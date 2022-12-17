@@ -36,6 +36,12 @@ public class FirstPersonController : MonoBehaviour
 	Vector3 moveDirection = Vector3.zero;
 	float yVel;
 
+	public static FirstPersonController Instance;
+
+	void Awake()
+	{
+		Instance = this;
+	}
 
 	void Start()
 	{
