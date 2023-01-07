@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class CountDown : MonoBehaviour
 {
+    public bool timeOnDeath;
     public float currentTime;
     public bool countdownStart;
     public bool countdownFinish;
@@ -36,6 +38,10 @@ public class CountDown : MonoBehaviour
         if (countdownFinish)
         {
             countdownText.text = "";
+            if (timeOnDeath)
+            {
+                PlayerDeath.Instance.Die();
+            }
             this.enabled = false;
         }
     }

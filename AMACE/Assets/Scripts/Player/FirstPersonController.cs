@@ -47,8 +47,7 @@ public class FirstPersonController : MonoBehaviour
 	{
 		cc = GetComponent<CharacterController>();
 
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
+		
 		charCamera = Camera.main.transform;
 
 	}
@@ -60,6 +59,12 @@ public class FirstPersonController : MonoBehaviour
 			Look();
 		if(allowMove)
 			Move();
+		Cursor.lockState = allowLook ? CursorLockMode.Locked : CursorLockMode.None;
+		Cursor.visible = allowLook ? false : true;
+
+		if (Cursor.lockState == CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Tab)) allowLook = false;
+		if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && !PlayerDeath.Instance.dead) allowLook = true;
+
 	}
 
 	void Move()

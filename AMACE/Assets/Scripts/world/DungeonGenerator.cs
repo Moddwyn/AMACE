@@ -48,6 +48,16 @@ public class DungeonGenerator : MonoBehaviour
             Transform SpawnRoom = Instantiate(roomPrefabs[RandRoom], nextAnchor.position, Quaternion.Euler(nextAnchor.rotation.eulerAngles));
             Transform[] NextExit = SpawnRoom.GetComponentsInChildren<Transform>().Where(x => x.tag == "Anchor").ToArray();
             int RandExit = Random.Range(0, 5);
+            for (int j = 0; j < NextExit.Length; j++)
+            {
+                if (j != RandExit)
+                {
+                    nextAnchor = NextExit[j];
+                    Transform spawnDeath = (Transform)Instantiate(deadroomPrefabs[Random.Range(0, deadroomPrefabs.Length)],
+                                            nextAnchor.position, Quaternion.Euler(nextAnchor.rotation.eulerAngles));
+                    spawnDeath.parent = SpawnRoom;
+                }
+            }
             nextAnchor = NextExit[RandExit];
 
             GameObject NewRoom = new GameObject("Room " + (mapHolder.childCount + 1));
@@ -64,10 +74,17 @@ public class DungeonGenerator : MonoBehaviour
 
     public void goToNextRoom()
     {
+        print("hi");
         if(currentRoom < roomCount-1)
         {
             currentRoom++;
         }
         FirstPersonController.Instance.transform.position = transform.GetChild(currentRoom).GetChild(0).GetChild(0).position + Vector3.up * 3;
+        PlayerDeath.Instance.dead = false;
+        FirstPersonController.Instance.gameObject.GetComponent<CharacterController>().enabled = true;
+        FirstPersonController.Instance.allowJump = true;
+        FirstPersonController.Instance.allowLook = true;
+        FirstPersonController.Instance.allowMove = true;
+
     }
 }
