@@ -20446,3 +20446,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab11626f5c9b842b2bc846e678a107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  answerDeath: 1

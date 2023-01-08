@@ -26,7 +26,7 @@ public class PlayerDeath : MonoBehaviour
         
     }
 
-    public void Die()
+    public void Die(bool deathAnswer)
     {
         dead = true;
         FirstPersonController.Instance.allowJump = false;
@@ -39,7 +39,15 @@ public class PlayerDeath : MonoBehaviour
             life--;
         }
         deadPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "you have " + life + " lives left";
-        deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
-        DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
+
+        if(deathAnswer)
+        {
+            deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
+            DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom-1).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
+        } else
+        {
+            deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
+            DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
+        }
     }
 }

@@ -85,5 +85,11 @@ public class DungeonGenerator : MonoBehaviour
         FirstPersonController.Instance.allowLook = true;
         FirstPersonController.Instance.allowMove = true;
 
+        foreach(AnswerManager wall in DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom-1).
+        GetChild(1).GetComponentInChildren<QuestionsManager>().GetComponentsInChildren<AnswerManager>())
+        {
+            wall.transform.GetChild(0).gameObject.SetActive(true);
+            wall.GetComponent<Collider>().isTrigger = false;
+        }
     }
 }

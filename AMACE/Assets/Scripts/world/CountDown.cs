@@ -40,7 +40,7 @@ public class CountDown : MonoBehaviour
             countdownText.text = "";
             if (timeOnDeath)
             {
-                PlayerDeath.Instance.Die();
+                PlayerDeath.Instance.Die(false);
             }
             this.enabled = false;
         }

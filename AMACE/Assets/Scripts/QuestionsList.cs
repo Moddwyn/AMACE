@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestionsList : MonoBehaviour
 {
-    [SerializeField] List<questions> questionList = new List<questions>();
+    public List<questions> questionList = new List<questions>();
 
     public static QuestionsList Instance;
 
