@@ -8,6 +8,7 @@ public class questions : ScriptableObject
 {
     public Sprite _questions;
     public Sprite correctAnswer;
+    public Sprite solution;
     public Sprite[] otherAnswers;
 }
 
