@@ -39,7 +39,7 @@ public class AnswerManager : MonoBehaviour
                 transform.parent.parent.GetComponentInChildren<CountDown>().StopCountdown();
             }
 
-            if(DungeonGenerator.Instance.currentRoom < DungeonGenerator.Instance.roomCount-1)
+            if(DungeonGenerator.Instance.currentRoom < DungeonGenerator.Instance.roomCount-1 && correctAnswer)
             {
                 DungeonGenerator.Instance.currentRoom++;
             }

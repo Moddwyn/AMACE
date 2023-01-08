@@ -38,14 +38,16 @@ public class PlayerDeath : MonoBehaviour
         {
             life--;
         }
-        deadPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "you have " + life + " lives left";
+        deadPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "You have " + life + " lives left";
 
         if(deathAnswer)
         {
+            deadPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = "ROOM " + (DungeonGenerator.Instance.currentRoom) + "/" + DungeonGenerator.Instance.roomCount;
             deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
             DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom-1).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
         } else
         {
+            deadPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = "ROOM " + (DungeonGenerator.Instance.currentRoom+1) + "/" + DungeonGenerator.Instance.roomCount;
             deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
             DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
         }
