@@ -74,7 +74,6 @@ public class DungeonGenerator : MonoBehaviour
 
     public void goToNextRoom()
     {
-        print("hi");
         if(currentRoom < roomCount-1)
         {
             currentRoom++;

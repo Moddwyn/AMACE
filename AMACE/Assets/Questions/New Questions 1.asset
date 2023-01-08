@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: New Questions 1
   m_EditorClassIdentifier: 
   _questions: {fileID: 21300000, guid: 39fa1a2de96475f42af5f2c75690996b, type: 3}
-  correctAnswer: {fileID: 21300000, guid: ee4b8dc2db3ba114fa2db1db0e2c26cf, type: 3}
+  correctAnswer: 4
+  solution: {fileID: 21300000, guid: ee4b8dc2db3ba114fa2db1db0e2c26cf, type: 3}
   otherAnswers:
-  - {fileID: 21300000, guid: ae56804490e13e144b304e7f872d8282, type: 3}
-  - {fileID: 21300000, guid: 5c51bc12b4c88b94089de7e01086b127, type: 3}
-  - {fileID: 21300000, guid: a855d200094ef004db703bffa35d60f7, type: 3}
-  - {fileID: 21300000, guid: 76d89dabd0ff60a4db2cffaf50104834, type: 3}
+  - rewr
+  - ewrw
+  - rfdsf
+  - rw

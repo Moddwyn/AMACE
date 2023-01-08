@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -38,5 +39,7 @@ public class PlayerDeath : MonoBehaviour
             life--;
         }
         deadPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "you have " + life + " lives left";
+        deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
+        DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
     }
 }

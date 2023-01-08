@@ -7,8 +7,8 @@ using System;
 public class questions : ScriptableObject
 {
     public Sprite _questions;
-    public Sprite correctAnswer;
+    public string correctAnswer;
     public Sprite solution;
-    public Sprite[] otherAnswers;
+    public string[] otherAnswers;
 }
 

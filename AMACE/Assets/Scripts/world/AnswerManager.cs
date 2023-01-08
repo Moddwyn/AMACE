@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AnswerManager : MonoBehaviour
 {
     public bool correctAnswer;
-    public MeshRenderer meshRenderer;
+    public TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
-        meshRenderer.enabled = false;
+        text.text = "";
     }
 
     // Update is called once per frame
@@ -18,10 +19,9 @@ public class AnswerManager : MonoBehaviour
         
     }
 
-    public void ShowAnswer(Sprite sprite)
+    public void ShowAnswer(string answerString)
     {
-        meshRenderer.enabled = true;
-        meshRenderer.material.mainTexture = sprite.texture;
+        text.text = answerString;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +37,11 @@ public class AnswerManager : MonoBehaviour
             if (transform.parent.parent.GetComponentInChildren<CountDown>() != null)
             {
                 transform.parent.parent.GetComponentInChildren<CountDown>().StopCountdown();
+            }
+
+            if(DungeonGenerator.Instance.currentRoom < DungeonGenerator.Instance.roomCount-1)
+            {
+                DungeonGenerator.Instance.currentRoom++;
             }
         }
 
