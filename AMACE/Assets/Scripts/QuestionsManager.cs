@@ -25,7 +25,7 @@ public class QuestionsManager : MonoBehaviour
             meshRenderer.enabled = true;
             _questions = QuestionsList.Instance.GetRandomQuestion();
             meshRenderer.material.mainTexture = _questions._questions.texture;
-            
+            meshRenderer.transform.localScale = new Vector3(_questions._questions.texture.width/100f, _questions._questions.texture.height/50f, 1);
             answerManagers[randExit].ShowAnswer(_questions.correctAnswer);
             answerManagers[randExit].correctAnswer = true;
             answerManagers.RemoveAt(randExit);

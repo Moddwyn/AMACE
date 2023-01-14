@@ -29,9 +29,14 @@ public class AnswerManager : MonoBehaviour
         if (other.tag == "Player")
         {
             if (correctAnswer)
+            {
                 transform.parent.GetComponent<QuestionsManager>().onCorrect?.Invoke();
+                StatsCounter.Instance.totalCorrect++;
+            }
             else
+            {
                 transform.parent.GetComponent<QuestionsManager>().onWrong?.Invoke();
+            }
             transform.GetChild(0).gameObject.SetActive(true);
             
             if (transform.parent.parent.GetComponentInChildren<CountDown>() != null)
@@ -43,6 +48,8 @@ public class AnswerManager : MonoBehaviour
             {
                 DungeonGenerator.Instance.currentRoom++;
             }
+
+            StatsCounter.Instance.totalRooms++;
         }
 
 

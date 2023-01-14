@@ -10,6 +10,7 @@ public class WaterRise : MonoBehaviour
     public bool waterRiseFinish;
     public Transform waterRise;
     public float riseSpeed;
+    public bool done;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,16 @@ public class WaterRise : MonoBehaviour
         {
             waterRise.localPosition = Vector3.MoveTowards(waterRise.localPosition, waterLevel, Time.deltaTime * riseSpeed);
         }
-        if(waterRise.localPosition.y >= waterLevel.y)
+        if(waterRise.localPosition.y >= waterLevel.y && !done)
         {
             waterRiseFinish = true;
+        }
+
+        if(waterRiseFinish)
+        {
+            done = true;
+            waterRiseFinish = false;
+            PlayerDeath.Instance.Die(false);
         }
     }
 

@@ -63,7 +63,11 @@ public class FirstPersonController : MonoBehaviour
 		Cursor.visible = allowLook ? false : true;
 
 		if (Cursor.lockState == CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Tab)) allowLook = false;
-		if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && !PlayerDeath.Instance.dead) allowLook = true;
+
+		if(TriggerWin.Instance != null)
+		{
+			if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && (!PlayerDeath.Instance.dead && !TriggerWin.Instance.win)) allowLook = true;
+		}
 
 	}
 

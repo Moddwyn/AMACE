@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TriggerDeath : MonoBehaviour
 {
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")

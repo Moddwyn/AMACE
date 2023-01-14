@@ -11,6 +11,7 @@ public class DungeonGenerator : MonoBehaviour
     public Transform[] hallwayPrefabs;
     public Transform[] roomPrefabs;
     public Transform[] deadroomPrefabs;
+    public Transform[] winroomPrefabs;
     public int currentRoom = 0;
     // Start is called before the first frame update
     public static DungeonGenerator Instance;
@@ -59,6 +60,11 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
             nextAnchor = NextExit[RandExit];
+            if(i == roomCount - 1)
+            {
+                Instantiate(winroomPrefabs[Random.Range(0, winroomPrefabs.Length)],
+                                            nextAnchor.position, Quaternion.Euler(nextAnchor.rotation.eulerAngles));
+            }
 
             GameObject NewRoom = new GameObject("Room " + (mapHolder.childCount + 1));
             NewRoom.transform.SetParent(mapHolder);

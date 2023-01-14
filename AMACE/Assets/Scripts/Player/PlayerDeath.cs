@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -38,6 +37,12 @@ public class PlayerDeath : MonoBehaviour
         {
             life--;
         }
+        if(life <= 0 || (DungeonGenerator.Instance.currentRoom + 1 == DungeonGenerator.Instance.roomCount))
+        {
+            deadPanel.transform.GetChild(2).gameObject.SetActive(false);
+            deadPanel.transform.GetChild(5).gameObject.SetActive(true);
+            deadPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = "GAME OVER";
+        }
         deadPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "You have " + life + " lives left";
 
         if(deathAnswer)
@@ -51,5 +56,10 @@ public class PlayerDeath : MonoBehaviour
             deadPanel.transform.GetChild(1).GetComponent<Image>().sprite = 
             DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).GetComponentInChildren<QuestionsManager>()._questions.solution;
         }
+    }
+    
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
