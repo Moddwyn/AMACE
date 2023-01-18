@@ -103,6 +103,7 @@ MonoBehaviour:
   waterRiseFinish: 0
   waterRise: {fileID: 5253309687088987224}
   riseSpeed: 0.1
+  done: 0
 --- !u!64 &1924301609975344098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -545,7 +546,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
