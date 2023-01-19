@@ -28,6 +28,7 @@ public class AnswerManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            print("Test");
             if (correctAnswer)
             {
                 transform.parent.GetComponent<QuestionsManager>().onCorrect?.Invoke();
@@ -41,7 +42,13 @@ public class AnswerManager : MonoBehaviour
             
             if (transform.parent.parent.GetComponentInChildren<CountDown>() != null)
             {
+                print("countdown");
                 transform.parent.parent.GetComponentInChildren<CountDown>().StopCountdown();
+            }
+            if (transform.parent.parent.GetComponentInChildren<WaterRise>() != null)
+            {
+                transform.parent.parent.GetComponentInChildren<WaterRise>().answered = true;
+                transform.parent.parent.GetComponentInChildren<WaterRise>().EnableWater(false);
             }
 
             if(DungeonGenerator.Instance.currentRoom < DungeonGenerator.Instance.roomCount-1 && correctAnswer)
@@ -49,7 +56,8 @@ public class AnswerManager : MonoBehaviour
                 DungeonGenerator.Instance.currentRoom++;
             }
 
-            StatsCounter.Instance.totalRooms++;
+            if(correctAnswer)
+                StatsCounter.Instance.totalRooms++;
         }
 
 

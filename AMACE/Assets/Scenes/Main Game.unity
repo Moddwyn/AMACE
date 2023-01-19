@@ -1706,6 +1706,7 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 1924301608459051635, guid: e8605fad50fa04b4e92b6ae2987e1dbc, type: 3}
   - {fileID: 1924301608459051635, guid: 3b228723159404b43b29dee9bb92b586, type: 3}
+  - {fileID: 1924301608459051635, guid: e6ed2c1ccc7977f4d89d7bedee35f775, type: 3}
   deadroomPrefabs:
   - {fileID: 5650861628599914887, guid: e1c9b940b5c692849953615d5111a9d5, type: 3}
   winroomPrefabs:
@@ -2551,8 +2552,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440782349}
-  m_LocalRotation: {x: 0.10516133, y: 0.19290695, z: 0.02076615, w: -0.9753444}
-  m_LocalPosition: {x: 6.438495, y: 11.481723, z: 38.19957}
+  m_LocalRotation: {x: -0.036230654, y: 0.18748368, z: 0.006943915, w: 0.9815748}
+  m_LocalPosition: {x: 0.4055655, y: 9.741031, z: 37.75035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103917212}
@@ -3440,7 +3441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: -58.432, y: -17.7129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997263279
@@ -3703,7 +3704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046598838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 

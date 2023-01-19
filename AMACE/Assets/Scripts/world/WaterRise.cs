@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class WaterRise : MonoBehaviour
 {
@@ -11,16 +12,27 @@ public class WaterRise : MonoBehaviour
     public Transform waterRise;
     public float riseSpeed;
     public bool done;
+    public bool answered;
+    bool activeRN;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        EnableWater(false);
+    }
+    public void EnableWater(bool active)
+    {
+        waterRise.gameObject.SetActive(active);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(activeRN)
+        {
+            FirstPersonController.Instance.transform.GetComponentInChildren<PostProcessVolume>().enabled =
+            waterRise.transform.position.y > FirstPersonController.Instance.transform.position.y && waterRise.gameObject.activeSelf && !waterRiseFinish ;
+        }
         if(waterRiseStart && !waterRiseFinish)
         {
             waterRise.localPosition = Vector3.MoveTowards(waterRise.localPosition, waterLevel, Time.deltaTime * riseSpeed);
@@ -30,7 +42,7 @@ public class WaterRise : MonoBehaviour
             waterRiseFinish = true;
         }
 
-        if(waterRiseFinish)
+        if(waterRiseFinish && !answered)
         {
             done = true;
             waterRiseFinish = false;
@@ -41,5 +53,6 @@ public class WaterRise : MonoBehaviour
     public void RiseUp()
     {
         waterRiseStart = true;
+        activeRN = true;
     }
 }

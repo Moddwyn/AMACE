@@ -28,6 +28,7 @@ public class PlayerDeath : MonoBehaviour
     public void Die(bool deathAnswer)
     {
         dead = true;
+        StatsCounter.Instance.totalRooms++;
         FirstPersonController.Instance.allowJump = false;
         FirstPersonController.Instance.allowLook = false;
         FirstPersonController.Instance.allowMove = false;
