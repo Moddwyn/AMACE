@@ -28,11 +28,13 @@ public class AnswerManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            print("Test");
+            FirstPersonController.Instance.fireVolume.enabled = false;
+            FirstPersonController.Instance.waterVolume.enabled = false;
             if (correctAnswer)
             {
                 transform.parent.GetComponent<QuestionsManager>().onCorrect?.Invoke();
                 StatsCounter.Instance.totalCorrect++;
+                SoundManager.Instance.source.PlayOneShot(SoundManager.Instance.correctAnswer);
             }
             else
             {

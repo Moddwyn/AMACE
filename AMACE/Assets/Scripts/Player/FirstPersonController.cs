@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour
@@ -25,6 +26,10 @@ public class FirstPersonController : MonoBehaviour
 	public bool allowMove = true;
 	public bool allowJump = true;
 	public bool allowLook = true;
+
+	[Space(20)]
+	public PostProcessVolume waterVolume;
+	public PostProcessVolume fireVolume;
 
 	CharacterController cc;
 	float speed;
@@ -51,6 +56,9 @@ public class FirstPersonController : MonoBehaviour
 		charCamera = Camera.main.transform;
 
 	}
+
+	public Transform GetCamera() => charCamera;
+
 	void Update()
 	{
 		if(allowJump)

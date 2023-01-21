@@ -10,6 +10,7 @@ public class archdoor : MonoBehaviour
     public Transform door2;
     public float rotationAmount;
     public float rotationSpeed;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -28,10 +28,15 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(waterRiseStart && !waterRiseFinish && !SoundManager.Instance.source.isPlaying)
+        {
+            SoundManager.Instance.source.PlayOneShot(SoundManager.Instance.waterSound);
+        }
+
         if(activeRN)
         {
-            FirstPersonController.Instance.transform.GetComponentInChildren<PostProcessVolume>().enabled =
-            waterRise.transform.position.y > FirstPersonController.Instance.transform.position.y && waterRise.gameObject.activeSelf && !waterRiseFinish ;
+            FirstPersonController.Instance.waterVolume.enabled =
+            waterRise.transform.position.y > FirstPersonController.Instance.GetCamera().position.y && waterRise.gameObject.activeSelf && !waterRiseFinish ;
         }
         if(waterRiseStart && !waterRiseFinish)
         {
@@ -46,6 +51,7 @@ public class WaterRise : MonoBehaviour
         {
             done = true;
             waterRiseFinish = false;
+            SoundManager.Instance.source.Stop();
             PlayerDeath.Instance.Die(false);
         }
     }
