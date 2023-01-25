@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a53358163eb4304c92edc53d61fe78c, type: 3}
-  m_Name: Question 8
+  m_Name: Question 9
   m_EditorClassIdentifier: 
-  _questions: {fileID: 21300000, guid: d399219b9bdb4664d88b65f274718a2a, type: 3}
-  correctAnswer: 20
-  solution: {fileID: 21300000, guid: 02d8fe19b5b9ce24ca23554dec30bbba, type: 3}
+  _questions: {fileID: 21300000, guid: c0504601975e006459f5e8af032e762a, type: 3}
+  correctAnswer: 3 * (3/4)
+  solution: {fileID: 21300000, guid: 3e822ddaeac57c44080d550766abc670, type: 3}
   otherAnswers:
-  - 16
-  - 17
-  - 18
-  - 19
+  - 2 * (3/4)
+  - 4 * (1/2)
+  - 5 * (1/2)
+  - 6 * (3/4)
