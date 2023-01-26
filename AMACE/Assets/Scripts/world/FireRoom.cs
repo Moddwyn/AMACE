@@ -21,6 +21,7 @@ public class FireRoom : MonoBehaviour
         {
             item.Play();
             FirstPersonController.Instance.fireVolume.enabled = true;
+            SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.fireSound);
         }
     }
 

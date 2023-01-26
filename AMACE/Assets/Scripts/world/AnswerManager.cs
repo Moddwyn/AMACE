@@ -34,7 +34,7 @@ public class AnswerManager : MonoBehaviour
             {
                 transform.parent.GetComponent<QuestionsManager>().onCorrect?.Invoke();
                 StatsCounter.Instance.totalCorrect++;
-                SoundManager.Instance.source.PlayOneShot(SoundManager.Instance.correctAnswer);
+                SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.correctAnswer);
             }
             else
             {
@@ -62,6 +62,13 @@ public class AnswerManager : MonoBehaviour
                 StatsCounter.Instance.totalRooms++;
         }
 
+
+    }
+
+    IEnumerator StopSound()
+    {
+        yield return new WaitForSeconds(1);
+        SoundManager.Instance.fxSource.Stop();
 
     }
 }

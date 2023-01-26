@@ -25,13 +25,6 @@ public class DungeonGenerator : MonoBehaviour
         roomGenerator();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            goToNextRoom();
-    }
-
     public void roomGenerator()
     {
         if (startingAnchor == null)

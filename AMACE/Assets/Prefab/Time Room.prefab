@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOnDeath: 1
-  currentTime: 30
+  currentTime: 100
   countdownStart: 0
   countdownFinish: 0
 --- !u!64 &1924301609975344098
@@ -15446,6 +15446,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3003233313219608236, guid: 05e58b2e3d0d02f4f8d1f2fa84520d26, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779389937673455572, guid: 05e58b2e3d0d02f4f8d1f2fa84520d26, type: 3}
+      propertyPath: onWrong.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779389937673455572, guid: 05e58b2e3d0d02f4f8d1f2fa84520d26, type: 3}
+      propertyPath: onCorrect.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3779389937673455572, guid: 05e58b2e3d0d02f4f8d1f2fa84520d26, type: 3}

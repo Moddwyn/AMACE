@@ -30,6 +30,9 @@ public class FirstPersonController : MonoBehaviour
 	[Space(20)]
 	public PostProcessVolume waterVolume;
 	public PostProcessVolume fireVolume;
+	public GameObject settingsPanel;
+	public GameObject winPanel;
+	public GameObject deathPanel;
 
 	CharacterController cc;
 	float speed;
@@ -40,6 +43,7 @@ public class FirstPersonController : MonoBehaviour
 	Vector2 appliedMouseDelta;
 	Vector3 moveDirection = Vector3.zero;
 	float yVel;
+	bool paused;
 
 	public static FirstPersonController Instance;
 
@@ -54,7 +58,7 @@ public class FirstPersonController : MonoBehaviour
 
 		
 		charCamera = Camera.main.transform;
-
+		PauseGame(false);
 	}
 
 	public Transform GetCamera() => charCamera;
@@ -74,8 +78,10 @@ public class FirstPersonController : MonoBehaviour
 
 		if(TriggerWin.Instance != null)
 		{
-			if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && (!PlayerDeath.Instance.dead && !TriggerWin.Instance.win)) allowLook = true;
+			if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && (!PlayerDeath.Instance.dead && !TriggerWin.Instance.win) && !paused) allowLook = true;
 		}
+
+		if(Input.GetKeyDown(KeyCode.T) && !deathPanel.activeSelf && !winPanel.activeSelf) PauseGame(true);
 
 	}
 
@@ -120,6 +126,32 @@ public class FirstPersonController : MonoBehaviour
 
 		charCamera.localRotation = Quaternion.AngleAxis(-currentMouseLook.y, Vector3.right);
 		transform.localRotation = Quaternion.AngleAxis(currentMouseLook.x, Vector3.up);
+	}
+
+	public void PauseGame(bool pause)
+	{
+		if(pause)
+		{
+			paused = true;
+			settingsPanel.SetActive(true);
+
+			allowLook = false;
+			allowJump = false;
+			allowMove = false;
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		} else
+		{
+			paused = false;
+			settingsPanel.SetActive(false);
+
+			allowLook = true;
+			allowJump = true;
+			allowMove = true;
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		} 
+		
 	}
 	
 }

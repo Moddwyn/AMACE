@@ -25,7 +25,7 @@ public class TriggerDeath : MonoBehaviour
                 DungeonGenerator.Instance.transform.GetChild(DungeonGenerator.Instance.currentRoom).GetChild(1).
                 GetComponentInChildren<CountDown>().StopCountdown();
             }
-            SoundManager.Instance.source.PlayOneShot(SoundManager.Instance.wrongAnswer);
+            SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.wrongAnswer);
             PlayerDeath.Instance.Die(false);
         }
     }
