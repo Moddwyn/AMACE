@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a53358163eb4304c92edc53d61fe78c, type: 3}
   m_Name: Question 23
   m_EditorClassIdentifier: 
-  _questions: {fileID: 21300000, guid: 7b35ec7af2e522c4ab9d5a0d43a985b0, type: 3}
-  correctAnswer: 7
-  solution: {fileID: 21300000, guid: 5ac5390e4a4eef44584e17f095c46901, type: 3}
+  _questions: {fileID: 21300000, guid: 565aa4b90b2d5554baa3ffa5be3e15f6, type: 3}
+  correctAnswer: -1
+  solution: {fileID: 21300000, guid: b7465c5f1ab69f047b4990079ae2d1c6, type: 3}
   otherAnswers:
-  - 6
-  - "5+2\u221A2"
-  - 8
-  - 9
+  - 1
+  - (abc)/60
+  - (1/abc)-(1/60)
+  - (1/60)-(1/abc)
