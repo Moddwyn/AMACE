@@ -7,9 +7,13 @@ public class AnswerManager : MonoBehaviour
 {
     public bool correctAnswer;
     public TMP_Text text;
+
+    DungeonGenerator dungeonGenerator;
     // Start is called before the first frame update
     void Start()
     {
+        dungeonGenerator = DungeonGenerator.Instance;
+        dungeonGenerator.UpdateCurrentRoomVisibility();
         text.text = "";
     }
 
@@ -35,6 +39,7 @@ public class AnswerManager : MonoBehaviour
                 transform.parent.GetComponent<QuestionsManager>().onCorrect?.Invoke();
                 StatsCounter.Instance.totalCorrect++;
                 SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.correctAnswer);
+                
             }
             else
             {
@@ -44,7 +49,6 @@ public class AnswerManager : MonoBehaviour
             
             if (transform.parent.parent.GetComponentInChildren<CountDown>() != null)
             {
-                print("countdown");
                 transform.parent.parent.GetComponentInChildren<CountDown>().StopCountdown();
             }
             if (transform.parent.parent.GetComponentInChildren<WaterRise>() != null)
@@ -53,13 +57,16 @@ public class AnswerManager : MonoBehaviour
                 transform.parent.parent.GetComponentInChildren<WaterRise>().EnableWater(false);
             }
 
-            if(DungeonGenerator.Instance.currentRoom < DungeonGenerator.Instance.roomCount-1 && correctAnswer)
+            if(dungeonGenerator.currentRoom < dungeonGenerator.roomCount-1 && correctAnswer)
             {
-                DungeonGenerator.Instance.currentRoom++;
+                dungeonGenerator.currentRoom++;
             }
+            dungeonGenerator.UpdateCurrentRoomVisibility();
 
             if(correctAnswer)
                 StatsCounter.Instance.totalRooms++;
+
+            SoundManager.Instance.roomSource.Stop();
         }
 
 

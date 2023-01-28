@@ -27,6 +27,7 @@ public class TriggerDeath : MonoBehaviour
             }
             SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.wrongAnswer);
             PlayerDeath.Instance.Die(false);
+            DungeonGenerator.Instance.UpdateCurrentRoomVisibility();
         }
     }
 }

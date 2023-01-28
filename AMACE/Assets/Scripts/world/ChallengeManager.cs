@@ -24,7 +24,9 @@ public class ChallengeManager : MonoBehaviour
         if (other.tag == "Player" && ChallengeStart == false)
         {
             ChallengeStart = true;
+            SoundManager.Instance.roomSource.Stop();
             onStart.Invoke();
+            DungeonGenerator.Instance.UpdateCurrentRoomVisibility();
         }
 
 

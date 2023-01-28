@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource fxSource;
     public AudioSource musicSource;
+    public AudioSource roomSource;
     public AudioClip correctAnswer;
     public AudioClip wrongAnswer;
     public AudioClip waterSound;
@@ -29,5 +30,6 @@ public class SoundManager : MonoBehaviour
     {
         fxSource.volume = audioSlider.value;
         musicSource.volume = audioSlider.value/6;
+        roomSource.volume = audioSlider.value;
     }
 }

@@ -28,9 +28,9 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(waterRiseStart && !waterRiseFinish && !SoundManager.Instance.fxSource.isPlaying)
+        if(waterRiseStart && !waterRiseFinish && !SoundManager.Instance.roomSource.isPlaying)
         {
-            SoundManager.Instance.fxSource.PlayOneShot(SoundManager.Instance.waterSound);
+            SoundManager.Instance.roomSource.PlayOneShot(SoundManager.Instance.waterSound);
         }
 
         if(activeRN)
@@ -51,7 +51,7 @@ public class WaterRise : MonoBehaviour
         {
             done = true;
             waterRiseFinish = false;
-            SoundManager.Instance.fxSource.Stop();
+            SoundManager.Instance.roomSource.Stop();
             PlayerDeath.Instance.Die(false);
         }
     }

@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -89,6 +89,41 @@ public class DungeonGenerator : MonoBehaviour
         {
             wall.transform.GetChild(0).gameObject.SetActive(true);
             wall.GetComponent<Collider>().isTrigger = false;
+        }
+
+        UpdateCurrentRoomVisibility();
+    }
+
+    public void UpdateCurrentRoomVisibility()
+    {
+        if(currentRoom == 0)
+        {
+            ActivateRoomExclusive(currentRoom, currentRoom+1);
+        }
+        else if(currentRoom >= roomCount - 1)
+        {
+            ActivateRoomExclusive(currentRoom, currentRoom-1);
+        } else if(currentRoom <= roomCount - 3)
+        {
+            ActivateRoomExclusive(currentRoom, currentRoom+1, currentRoom+2, currentRoom-1);
+        } else
+        {
+            ActivateRoomExclusive(currentRoom, currentRoom+1, currentRoom-1);
+        }
+    }
+    
+    void ActivateRoomExclusive(params int[] activated)
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if(activated.Contains(i))
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+                continue;
+            }
+
+            Transform room = transform.GetChild(i);
+            room.gameObject.SetActive(false);
         }
     }
 }

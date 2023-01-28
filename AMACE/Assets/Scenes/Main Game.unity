@@ -1145,13 +1145,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionList:
-  - {fileID: 11400000, guid: 0f53b73d17a627c4890b236c24222b2c, type: 2}
   - {fileID: 11400000, guid: 79dbca59a9b647444808c57061e501e8, type: 2}
   - {fileID: 11400000, guid: d9ad8afb7c29b5242bafe32702f32f2e, type: 2}
   - {fileID: 11400000, guid: cd9079efd85a41d4fa97b72b309f1422, type: 2}
   - {fileID: 11400000, guid: 4980bd71ebda40541878466e2e0e1a36, type: 2}
   - {fileID: 11400000, guid: 75be44ae0a16e204ca6f38f2bd658ce8, type: 2}
   - {fileID: 11400000, guid: 20cfc1160412e79418175897a91bf79c, type: 2}
+  - {fileID: 11400000, guid: 0f53b73d17a627c4890b236c24222b2c, type: 2}
+  - {fileID: 11400000, guid: be49af22fc158704d92aa8aeb7546742, type: 2}
+  - {fileID: 11400000, guid: 245e0339eb063fe468c1a8ade20d7b0d, type: 2}
+  - {fileID: 11400000, guid: 9833d22859db95e408cc2466e8706032, type: 2}
+  - {fileID: 11400000, guid: 9720eddd04d20d644b9285e6461077ff, type: 2}
+  - {fileID: 11400000, guid: fcacee85c9d626844894afbe1c2a84e4, type: 2}
+  - {fileID: 11400000, guid: c37a84fa01cce24449fb74d6f1122471, type: 2}
+  - {fileID: 11400000, guid: 28e2692dc1e418641a49950000910fbd, type: 2}
+  - {fileID: 11400000, guid: 9c7c29a819c0f94439b4bcc48f5ad1d1, type: 2}
+  - {fileID: 11400000, guid: 1227d315d12dbe1449172a3b48ce5837, type: 2}
+  - {fileID: 11400000, guid: 2c8dd7235bf11d14aa3dcde2eb96da84, type: 2}
+  - {fileID: 11400000, guid: 3f286aaaf4d86c542926dcc45707839a, type: 2}
+  - {fileID: 11400000, guid: a0524b7175f00104e99060fce7e3aa14, type: 2}
+  - {fileID: 11400000, guid: 0388f0b272dbc084ca98ed77284c4bd4, type: 2}
+  - {fileID: 11400000, guid: 55d2fbc2c997c3e4da9673d4391cd8a7, type: 2}
+  - {fileID: 11400000, guid: fd39e465f105c32438b05f872ab85642, type: 2}
+  - {fileID: 11400000, guid: a64494ca15d831b4ea2f95c35b815662, type: 2}
+  - {fileID: 11400000, guid: 3276c6fec9adc244ca5916cb2d3cf554, type: 2}
+  - {fileID: 11400000, guid: 4451c5ea697a35a4b81a05c1b9409161, type: 2}
 --- !u!4 &511020435
 Transform:
   m_ObjectHideFlags: 0
@@ -1620,6 +1638,7 @@ GameObject:
   - component: {fileID: 652684844}
   - component: {fileID: 652684843}
   - component: {fileID: 652684842}
+  - component: {fileID: 652684846}
   - component: {fileID: 652684845}
   m_Layer: 0
   m_Name: SoundManager
@@ -1738,6 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxSource: {fileID: 652684842}
   musicSource: {fileID: 652684845}
+  roomSource: {fileID: 652684846}
   correctAnswer: {fileID: 8300000, guid: a57ccc495661dc64b90c6678cd777b3d, type: 3}
   wrongAnswer: {fileID: 8300000, guid: 3baafddbad5704b4f9cd71d9576b3f9c, type: 3}
   waterSound: {fileID: 8300000, guid: 180484a2baef9714b99ce99f9365b676, type: 3}
@@ -1772,6 +1792,102 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &652684846
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652684841}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2438,7 +2554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapHolder: {fileID: 838482788}
-  roomCount: 7
+  roomCount: 25
   startingAnchor: {fileID: 556375401}
   hallwayPrefabs:
   - {fileID: 1167980174347123565, guid: 4813f035fc991844f8bede9ba764c37e, type: 3}
@@ -2566,7 +2682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc69406551d6c0e4ea3c7274a3fd2d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  life: 10000
   deadPanel: {fileID: 514025695}
   dead: 0
 --- !u!143 &968327050
