@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOnDeath: 1
-  currentTime: 20
+  currentTime: 100
   countdownStart: 0
   countdownFinish: 0
 --- !u!64 &1924301609975344098
